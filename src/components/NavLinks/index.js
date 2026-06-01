@@ -1,8 +1,8 @@
 import {NavLink} from 'react-router-dom'
 import {AiFillHome} from 'react-icons/ai'
-import {HiMiniFire} from 'react-icons/hi'
+import {HiFire} from 'react-icons/hi'
 import {SiYoutubegaming} from 'react-icons/si'
-import {MdOutlinePlaylistAdd} from 'react-icons/md'
+import {MdPlaylistAdd} from 'react-icons/md'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 const NavLinks = () => (
@@ -17,7 +17,7 @@ const NavLinks = () => (
         </li>
         <li>
           <NavLink to="/trending">
-            <HiMiniFire />
+            <HiFire />
             <p>Trending</p>
           </NavLink>
         </li>
@@ -29,7 +29,7 @@ const NavLinks = () => (
         </li>
         <li>
           <NavLink to="/saved-videos">
-            <MdOutlinePlaylistAdd />
+            <MdPlaylistAdd />
             <p>Saved Videos</p>
           </NavLink>
         </li>

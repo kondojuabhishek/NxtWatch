@@ -42,7 +42,7 @@ const Header = props => {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                   alt="profile"
                 />
-                <Popup modal trigger={<button>Logout</button>}>
+                <Popup modal trigger={<button type="button">Logout</button>}>
                   {close => (
                     <div>
                       <p>Are you sure you want to logout?</p>
