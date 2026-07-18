@@ -1,6 +1,18 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
+import {
+  LoginPageContainer,
+  LoginFormContainer,
+  LoginLogo,
+  LoginButton,
+  InputContainer,
+  InputLabel,
+  UserInput,
+  ShowPasswordContainer,
+  ShowPasswordLabel,
+  ErrorMsg,
+} from './styledComponents'
 import NxtWatchContext from '../../context/NxtWatchContext'
 
 class Login extends Component {
@@ -82,58 +94,65 @@ class Login extends Component {
           const inputType = showPassword ? 'text' : 'password'
 
           return (
-            <div className="login-page-container">
-              <form className="login-form-container" onSubmit={this.submitForm}>
+            <LoginPageContainer isDark={isDarkTheme}>
+              <LoginFormContainer
+                onSubmit={this.submitForm}
+                isDark={isDarkTheme}
+              >
                 {isDarkTheme ? (
-                  <img
+                  <LoginLogo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
                     alt="website logo"
-                    className="login-app-logo"
                   />
                 ) : (
-                  <img
+                  <LoginLogo
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                     alt="website logo"
                   />
                 )}
-                <div className="input-container">
-                  <label className="input-label" htmlFor="username">
+                <InputContainer>
+                  <InputLabel htmlFor="username" isDark={isDarkTheme}>
                     USERNAME
-                  </label>
-                  <input
+                  </InputLabel>
+                  <UserInput
                     type="text"
                     id="username"
                     value={username}
-                    className="username-input-filed"
+                    placeholder="Username"
                     onChange={this.onChangeUsername}
+                    isDark={isDarkTheme}
                   />
-                </div>
-                <div className="input-container">
-                  <label className="input-label" htmlFor="password">
+                </InputContainer>
+                <InputContainer>
+                  <InputLabel htmlFor="password" isDark={isDarkTheme}>
                     PASSWORD
-                  </label>
-                  <input
+                  </InputLabel>
+                  <UserInput
                     type={inputType}
                     id="password"
                     value={password}
-                    className="password-input-filed"
+                    placeholder="Password"
                     onChange={this.onChangePassword}
+                    isDark={isDarkTheme}
                   />
-                </div>
-                <div className="show-password-container">
+                </InputContainer>
+                <ShowPasswordContainer>
                   <input
                     type="checkbox"
                     id="showPassword"
                     onChange={this.onChangeShowPassword}
                   />
-                  <label htmlFor="showPassword">Show Password</label>
-                </div>
-                <button type="submit" className="login-button">
-                  Login
-                </button>
-                {showErrorMsg && <p>*{errorMsg}</p>}
-              </form>
-            </div>
+                  <ShowPasswordLabel
+                    htmlFor="showPassword"
+                    isDark={isDarkTheme}
+                  >
+                    Show Password
+                  </ShowPasswordLabel>
+                </ShowPasswordContainer>
+                <LoginButton type="submit">Login</LoginButton>
+                {showErrorMsg && <ErrorMsg>*{errorMsg}</ErrorMsg>}
+              </LoginFormContainer>
+            </LoginPageContainer>
           )
         }}
       </NxtWatchContext.Consumer>

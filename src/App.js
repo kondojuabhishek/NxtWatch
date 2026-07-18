@@ -15,7 +15,7 @@ import './App.css'
 
 class App extends Component {
   state = {
-    isDarkTheme: false,
+    isDarkTheme: true,
     savedVideosList: [],
   }
 
